@@ -1,0 +1,7 @@
+streamlit
+python-dotenv
+pdfplumber
+anthropic
+python-docx
+typing-extensions
+regex
