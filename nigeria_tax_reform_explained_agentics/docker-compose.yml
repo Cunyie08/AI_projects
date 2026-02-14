@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      # These ${VAR} syntax pulls from the .env file
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 5
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: always
+    environment:
+          # This overrides whatever is in your .env file
+          - DATABASE_URL=mysql+pymysql://root:taxease_password@db:3306/taxease_db
+    volumes:
+      - ./backend/chroma_db:/app/chroma_db
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+      build: 
+        context: ./frontend
+      restart: always
+      ports:
+        - "80:8080" # Map the world's HTTP (80) to Docker's secure 8080
+      depends_on:
+        - backend
+
+volumes:
+  mysql_data:
