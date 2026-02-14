@@ -187,13 +187,14 @@ Frontend
 
 ### 12. Team & Contribution
 
-This project was developed by a small cross-functional team. As one of two AI engineers, I led the design and implementation of the agentic RAG architecture, including document ingestion, retrieval optimization, conversation memory integration, and citation-backed response generation. I collaborated closely with frontend and backend engineers to ensure seamless system integration and user-facing transparency.
+TaxPyre was developed by a small cross-functional team. All AI system design and RAG architecture decisions were collaboratively developed between the AI engineering team. 
 
----
+AI Engineering (Architecture & RAG System) 
+    - Kanyisola Fagbayi
+    - Blessing James
 
-Author
+Frontend Development
+    - Ruqayat Odeleye
 
-Kanyisola Fagbayi
-Data Scientist | Applied AI Systems
-Nigeria
-LinkedIn: https://www.linkedin.com/in/kanyisola-fagbayi
+Research & Documentation
+    - All members of the team
